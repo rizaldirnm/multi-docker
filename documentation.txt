@@ -1,0 +1,20 @@
+Folder ini berisi tentang bagaimana men-setup development environtment menggunakan docker dengan teknologi:
+1. NodeJS
+2. NGINX
+3. PostgresSQL
+4. Redis
+5. ReactJS
+
+folder:
+/client
+/nginx
+/server
+/worker
+
+setiap folder memiliki image sendiri-sendiri
+lalu di combine dengan "docker-compose.yml'
+nginx disini berguna untuk portmaping antara client dan api(server).
+
+Dalam .conf nginx => ada upstream antara server dan client
+
+
