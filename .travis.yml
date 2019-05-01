@@ -1,0 +1,21 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t rizaldirnm/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+  - docker run rizaldirnm/react-test npm test -- --coverage
+
+after_success:
+  - docker build -t rizaldirnm/multi-client ./client
+  - docker build -t rizaldrinm/multi-nginx ./nginx
+  - docker build -t rizaldirnm/multi-server ./server
+  - docker build -t rizaldirnm/multi-worker ./worker
+
+  - $echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_PASSWORD" --password-stdin
+  - docker push rizaldirnm/multi-client
+  - docker push rizaldrinm/multi-nginx
+  - docker push rizaldirnm/multi-server
+  - docker push rizaldirnm/multi-worker
