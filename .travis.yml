@@ -10,7 +10,7 @@ script:
 
 after_success:
   - docker build -t rizaldirnm/multi-client ./client
-  - docker build -t rizaldrinm/multi-nginx ./nginx
+  - docker build -t rizaldirnm/multi-nginx ./nginx
   - docker build -t rizaldirnm/multi-server ./server
   - docker build -t rizaldirnm/multi-worker ./worker
 
