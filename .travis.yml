@@ -14,8 +14,8 @@ after_success:
   - docker build -t rizaldirnm/multi-server ./server
   - docker build -t rizaldirnm/multi-worker ./worker
 
-  - $echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_PASSWORD" --password-stdin
+  - $echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   - docker push rizaldirnm/multi-client
-  - docker push rizaldrinm/multi-nginx
+  - docker push rizaldirnm/multi-nginx
   - docker push rizaldirnm/multi-server
   - docker push rizaldirnm/multi-worker
